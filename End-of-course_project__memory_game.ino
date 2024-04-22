@@ -33,7 +33,7 @@ const int greenLed = 13;
 const int redLed = 10;
 
 void setup() {
-  // Generador de números random
+  // Generador de números random, se basa en el voltaje que recibe el analogPin0, el cual va variando y es siempre aleatorio
   randomSeed(analogRead(0));
   Wire.begin();
 
@@ -117,7 +117,7 @@ void loop() {
     // Establece la longitud del código que el jugador introduce a 5, pero deja un sexto espacio para introducir un valor nulo. Sin ese valor nulo la función itoa no funcionaría
     char numeros[6];
     numeros[5] = '\0';
-
+    // Al presionar un dígito en el teclado, se imprime en la pantalla. Al final añade un valor nulo para que la funcion itoa funcione
     for (int i = 0; i < 5; i++) {
       char key2 = '\0';
       while (key2 < '0' || key2 > '9') {

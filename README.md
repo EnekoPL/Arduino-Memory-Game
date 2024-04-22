@@ -1,5 +1,3 @@
-Memory Game
-
 Memory Game is an Arduino-based project that challenges players to memorize and input sequences of numbers displayed on an LCD screen. The game consists of multiple levels, each increasing in difficulty, where players must correctly input the displayed sequence to progress.
 
 Description

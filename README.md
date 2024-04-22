@@ -31,7 +31,7 @@ Wiring Instructions
       - To run the Memory Game project, you will need to install the following libraries:
           - Wire.h
         - LiquidCrystal_I2C.h
-    These libraries provide the necessary functions to communicate with the LCD screen and handle I2C communication.
+           -  These libraries provide the necessary functions to communicate with the LCD screen and handle I2C communication.
 
 Usage
    - Once the hardware is set up and the necessary libraries are installed, upload the provided Arduino code to your Arduino Uno board. The game will start automatically once the code is uploaded.

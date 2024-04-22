@@ -38,7 +38,7 @@ Usage
 
 Have fun challenging your memory with Memory Game!
 
-Contributors
+Contributors:
 This project was developed by Eneko Pardo.
 
 Feel free to contribute to the project by submitting pull requests or opening issues on GitHub.

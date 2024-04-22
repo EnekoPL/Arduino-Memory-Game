@@ -5,7 +5,11 @@ Memory Game is an Arduino-based project that challenges players to memorize and 
 Description
 The game utilizes an Arduino Uno board along with a 16x2 LCD screen and a 4x4 matrix keypad. The LCD screen displays random sequences of numbers, and players must input these sequences using the keypad. If the input matches the displayed sequence, players advance to the next level. However, if the input is incorrect, players must retry the level.
 
-Components: Arduino Uno, 16x2 LCD Screen, 4x4 Matrix Keypad, LEDs (for feedback).
+Components
+   - Arduino Uno
+   - 16x2 LCD Screen
+   - 4x4 Matrix Keypad
+   - LEDs (for feedback)
 
 Wiring Instructions
 
@@ -34,11 +38,10 @@ Wiring Instructions
 Usage
    - Once the hardware is set up and the necessary libraries are installed, upload the provided Arduino code to your Arduino Uno board. The game will start automatically once the code is uploaded.
 
-   - Follow the on-screen instructions to progress through the levels. Use the keypad to input the displayed sequences of numbers. If your input matches the sequence, you will advance to the next level. If not, you will need to retry the level.
+   - Follow the on-screen instructions to progress through the levels. Use the keypad to input the displayed sequences of numbers. If your input matches the sequence, you will advance to the next level. If not, you will need to         retry the level.
 
 Have fun challenging your memory with Memory Game!
 
-Contributors:
-This project was developed by Eneko Pardo.
-
-Feel free to contribute to the project by submitting pull requests or opening issues on GitHub.
+Contributors
+   - This project was developed by Eneko Pardo.
+   - Feel free to contribute to the project by submitting pull requests or opening issues on GitHub.

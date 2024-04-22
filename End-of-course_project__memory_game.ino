@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
+// Nombro la pantalla LCD
 LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
 #define ROWS 4
@@ -18,11 +19,11 @@ char keys[ROWS][COLS] = {
     {'*', '0', '#', 'D'}
 };
 
-// Variable para generar un numero random
+// Variable para generar un numero random, la he llamado ak
 char ak = random(1, 10) + '0';
 
 // Variables para cada nivel
-long randomNum; 
+long randomNum;
 long randomNum2;
 long randomNum3;
 long randomNum4;
@@ -45,7 +46,7 @@ void setup() {
   pinMode(greenLed, OUTPUT);
   pinMode(redLed, OUTPUT);
 
-  // Resistencias interactivas
+  // Resistencias interactivas para el teclado 4x4
   for (int i = 0; i < COLS; i++) {
     pinMode(colPins[i], OUTPUT);
     digitalWrite(colPins[i], HIGH);
@@ -66,11 +67,11 @@ void loop() {
   // Lee la tecla presionada
   char key = getKey();
 
-  // Establece la longitud del código a 5, el 0 en el diccionario cuenta entonces al ultimo debajo le pondre un valor null
+  // Establece la longitud del código a 5, pero deja un sexto espacio para introducir un valor nulo. Sin ese valor nulo la función itoa no funcionaría
   char randomStr[6]; 
   randomStr[5] = '\0';
 
-  // Convierte el numero en un string
+  // Convierte el numero en un string, una cadena de caracteres
   itoa(randomNum, randomStr, 10);
 
   // Verifica si se ha presionado una tecla
@@ -90,7 +91,7 @@ void loop() {
     delay(2000);
     lcd.setCursor(1, 1);
 
-    // Filtrar los caracteres no numéricos del código aleatorio.
+    // Filtra los caracteres no numéricos del código aleatorio. Todos esos caracteres los transforma en dígitos
     for (int i = 0; i < 5; i++) {
       if (randomStr[i] < '0' || randomStr[i] > '9') {
         ak = random(1, 10) + '0'; // Generar un nuevo valor de ak
@@ -113,18 +114,17 @@ void loop() {
     lcd.print("Insert code:");
     Serial.println(randomStr);
 
-    // Establece la longitud del código a 5, el 0 en el diccionario cuenta entonces al ultimo debajo le pondre un valor null
+    // Establece la longitud del código que el jugador introduce a 5, pero deja un sexto espacio para introducir un valor nulo. Sin ese valor nulo la función itoa no funcionaría
     char numeros[6];
     numeros[5] = '\0';
 
-    // Este for es para filtrar caracteres no numéricos, ingresar todos los numeros entre otras cosas
     for (int i = 0; i < 5; i++) {
       char key2 = '\0';
       while (key2 < '0' || key2 > '9') {
         key2 = getKey(); 
         
         // Borrar dígito
-        if (key2 == '#') { // Se verifica si la tecla presionada por el usuario es '#' para borrar
+        if (key2 == '#') { // Se verifica si la tecla presionada por el usuario es '#', si es así borra el último dígito.
           if (i > 0) {
             lcd.setCursor(i - 1, 1);
             lcd.print(" ");
@@ -371,6 +371,7 @@ void loop() {
             // Reiniciar loop para volver al nivel 1
             for (;;) loop();
           }
+          // En caso de error, se vuelve al menú principal, se reinicia el loop
           else {
             lcd.clear();
             lcd.setCursor(0, 0);
@@ -417,6 +418,7 @@ void loop() {
   }
 }
 
+// Se nombra la variable getKey para registrar lo que el jugador pulsa en el teclado
 char getKey() {
   char key = '\0';
   for (int i = 0; i < ROWS; i++) { 

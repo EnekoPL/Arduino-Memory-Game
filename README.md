@@ -8,15 +8,16 @@ The game utilizes an Arduino Uno board along with a 16x2 LCD screen and a 4x4 ma
 Components: Arduino Uno, 16x2 LCD Screen, 4x4 Matrix Keypad, LEDs (for feedback).
 
 Wiring Instructions
-    - LCD Screen:
-      - SDA pin to A4 on Arduino Uno
-      - SCL pin to A5 on Arduino Uno
-      - VCC pin to 5V on Arduino Uno
-      - GND pin to GND on Arduino Uno
 
   - Matrix Keypad:
       - Connect the row pins (4 pins) to digital pins 6, 7, 8, and 9 on Arduino Uno
       - Connect the column pins (4 pins) to digital pins 2, 3, 4, and 5 on Arduino Uno
+        
+  - LCD Screen:
+      - SDA pin to A4 on Arduino Uno
+      - SCL pin to A5 on Arduino Uno
+      - VCC pin to 5V on Arduino Uno
+      - GND pin to GND on Arduino Uno
 
   - LEDs:
       - Connect the positive (longer) leg of the green LED to digital pin 13 on Arduino Uno
